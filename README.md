@@ -11,10 +11,10 @@ This repository contains complete implementations for a network socket programmi
 Sistemas/
 ├── Python Files
 │   ├── server-socket.py              # Original single-threaded server
-│   ├── server-multithreaded.py       # Multithreaded server (Activity 3)
+│   ├── server-multithreaded.py       # Multithreaded server
 │   ├── client-socket.py              # Original interactive client
 (Activity 2)
-│   └── client-random.py              # Random message client (Activity 4)
+│   └── client-random.py              # Random message client
 │
 ├── C Files
 │   ├── server-socket.cpp             # C++ multithreaded server
