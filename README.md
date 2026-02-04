@@ -16,9 +16,9 @@ Sistemas/
 │   └── client-random.py              # Random message client
 │
 ├── C Files
-│   ├── server-socket.cpp             # C++ multithreaded server
-│   ├── client-socket.cpp             # C++ interactive client
-│   └── client-random.cpp             # C++ random message client
+│   ├── server-socket.cpp             # C multithreaded server
+│   ├── client-socket.cpp             # C interactive client
+│   └── client-random.cpp             # C random message client
 │
 └── Documentation
     └── README.md                     # This file
