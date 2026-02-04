@@ -1,6 +1,6 @@
 from socket import *
 
-serverName = "localhost"
+serverName = "172.23.198.200"
 serverPort = 12000
 next = True
 while next:

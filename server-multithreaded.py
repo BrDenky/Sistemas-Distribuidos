@@ -5,7 +5,7 @@ import time
 serverPort = 12000
 serverSocket = socket(AF_INET, SOCK_STREAM)
 serverSocket.bind(("", serverPort))
-serverSocket.listen(5)  # Increased backlog for multiple connections
+serverSocket.listen(5)  # for multiple connections
 print("The multithreaded server is ready to receive")
 
 def handle_client(connectionSocket, addr):

@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
     int result;
     
     // Get server name from command line or use localhost
-    string serverName = "127.0.0.1";
+    string serverName = "172.23.198.200";
     if (argc > 1) {
         serverName = argv[1];
     }

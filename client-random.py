@@ -3,42 +3,36 @@ import random
 import string
 import sys
 
-# Accept server IP from command line argument, default to localhost
-if len(sys.argv) > 1:
-    serverName = sys.argv[1]
-else:
-    serverName = "localhost"
+serverName = "172.23.198.200"
 
 serverPort = 12000
 
-def generate_random_message(length=20):
-    """Generate a random message with letters and spaces"""
-    chars = string.ascii_lowercase + ' '
-    return ''.join(random.choice(chars) for _ in range(length))
+def generate_random_message(num_words=5):
+    words = [
+        'el', 'la', 'un', 'una', 'gato', 'perro', 'casa', 'libro', 
+        'corre', 'salta', 'lee', 'escribe', 'rápido', 'lento',
+        'grande', 'pequeño', 'azul', 'rojo', 'en', 'con', 'por'
+    ]
+    message = ' '.join(random.choice(words) for _ in range(4))
+    return message + '.'
 
 # Generate random number of messages (between 1 and 10)
 num_messages = random.randint(1, 10)
-print(f"Client will send {num_messages} random messages to {serverName}:{serverPort}")
 
 try:
     for i in range(num_messages):
-        # Create new socket for each message
-        clientSocket = socket(AF_INET, SOCK_STREAM)
+        clientSocket = socket(AF_INET, SOCK_STREAM) # Create a new socket for each message
         clientSocket.connect((serverName, serverPort))
         
-        # Generate and send random message
-        message = generate_random_message(random.randint(10, 30))
+        message = generate_random_message(random.randint(10, 30)) # Generate and send random message
         print(f"\n[Message {i+1}/{num_messages}] Sending: {message}")
         clientSocket.send(message.encode())
         
-        # Receive response
-        modifiedMessage = clientSocket.recv(1024)
+        modifiedMessage = clientSocket.recv(1024) # Receive response
         print(f"[Message {i+1}/{num_messages}] From Server: {modifiedMessage.decode()}")
         
         clientSocket.close()
-    
-    print(f"\n✓ Successfully sent all {num_messages} messages. Client terminating.")
-    
+
 except ConnectionRefusedError:
     print(f"ERROR: Could not connect to server at {serverName}:{serverPort}")
     print("Make sure the server is running and the IP address is correct.")
