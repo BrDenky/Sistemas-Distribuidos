@@ -13,7 +13,6 @@ Sistemas/
 │   ├── server-socket.py              # Original single-threaded server
 │   ├── server-multithreaded.py       # Multithreaded server
 │   ├── client-socket.py              # Original interactive client
-(Activity 2)
 │   └── client-random.py              # Random message client
 │
 ├── C Files
