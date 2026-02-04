@@ -22,8 +22,7 @@ Sistemas/
 │   └── client-random.cpp             # C++ random message client
 │
 └── Documentation
-    ├── README.md                     # This file
-    └── testing-guide.md              # Complete testing procedures
+    └── README.md                     # This file
 ```
 ## 💻 Compilation and Execution
 
