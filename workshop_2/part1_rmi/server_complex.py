@@ -5,9 +5,8 @@ from xmlrpc.server import SimpleXMLRPCRequestHandler
 class RequestHandler(SimpleXMLRPCRequestHandler):
     rpc_paths = ('/RPC2',)
 
-# Complex number operations
+# Operations
 def add_complex(real1, imag1, real2, imag2):
-    """Add two complex numbers"""
     result_real = real1 + real2
     result_imag = imag1 + imag2
     return (result_real, result_imag)

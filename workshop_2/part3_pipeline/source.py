@@ -16,7 +16,7 @@ def main():
     socket = context.socket(zmq.PUSH)
     
     # Connect to broker's frontend
-    BROKER_HOST = 'localhost'  # Change to broker IP for different hosts
+    BROKER_HOST = '172.23.198.18'  # Change to broker IP for different hosts
     BROKER_PORT = 13000
     
     address = f"tcp://{BROKER_HOST}:{BROKER_PORT}"

@@ -29,7 +29,7 @@ def main():
     context = zmq.Context()
     socket = context.socket(zmq.SUB)
     
-    HOST = 'localhost'  # Change to publisher IP for different hosts
+    HOST = '172.23.198.18'  # Change to publisher IP for different hosts
     
     # Connect to all requested services
     print("Subscriber starting...")
