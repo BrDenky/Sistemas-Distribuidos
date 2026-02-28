@@ -11,10 +11,8 @@ import dns.reversename
 
 IP_ADDRESS = "8.8.8.8"
 
-print(f"{'='*55}")
 print(f"  B2: Reverse Lookup (IP -> Domain)")
 print(f"  IP: {IP_ADDRESS}")
-print(f"{'='*55}\n")
 
 try:
     # Build the reverse-lookup name (e.g. 8.8.8.8 -> 8.8.8.8.in-addr.arpa)

@@ -10,10 +10,8 @@ import dns.resolver
 
 DOMAIN = "yachaytech.edu.ec"
 
-print(f"{'='*55}")
 print(f"  B1: Basic Domain Lookup")
 print(f"  Domain: {DOMAIN}")
-print(f"{'='*55}\n")
 
 try:
     answers = dns.resolver.resolve(DOMAIN, "A")

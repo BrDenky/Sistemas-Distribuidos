@@ -12,11 +12,9 @@ import dns.resolver
 DOMAIN = "hpc.cedia.edu.ec"
 CUSTOM_DNS = "1.1.1.1"   # Cloudflare's DNS server
 
-print(f"{'='*55}")
 print(f"  B3: Query Specific DNS Server")
 print(f"  Domain:     {DOMAIN}")
 print(f"  DNS Server: {CUSTOM_DNS} (Cloudflare)")
-print(f"{'='*55}\n")
 
 try:
     resolver = dns.resolver.Resolver()

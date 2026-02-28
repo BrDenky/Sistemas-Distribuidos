@@ -11,10 +11,8 @@ import dns.resolver
 
 DOMAIN = "yachaytech.edu.ec"
 
-print(f"{'='*55}")
 print(f"  B6: SOA Record")
 print(f"  Domain: {DOMAIN}")
-print(f"{'='*55}\n")
 
 try:
     answers = dns.resolver.resolve(DOMAIN, "SOA")

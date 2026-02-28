@@ -17,11 +17,9 @@ import dns.name
 DOMAIN  = "yachaytech.edu.ec"
 DNS_SERVER = "8.8.8.8"
 
-print(f"{'='*55}")
 print(f"  B8: Debug Mode")
 print(f"  Domain: {DOMAIN}")
 print(f"  Using DNS: {DNS_SERVER}")
-print(f"{'='*55}\n")
 
 try:
     qname   = dns.name.from_text(DOMAIN)

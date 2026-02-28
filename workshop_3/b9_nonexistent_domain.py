@@ -11,10 +11,8 @@ import dns.resolver
 
 DOMAIN = "nonexistdomain12345.com"
 
-print(f"{'='*55}")
 print(f"  B9: Query a Non-Existent Domain")
 print(f"  Domain: {DOMAIN}")
-print(f"{'='*55}\n")
 
 try:
     answers = dns.resolver.resolve(DOMAIN, "A")

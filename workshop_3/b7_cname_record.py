@@ -11,10 +11,8 @@ import dns.resolver
 
 DOMAIN = "www.microsoft.com"
 
-print(f"{'='*55}")
 print(f"  B7: CNAME Record")
 print(f"  Domain: {DOMAIN}")
-print(f"{'='*55}\n")
 
 try:
     answers = dns.resolver.resolve(DOMAIN, "CNAME")
