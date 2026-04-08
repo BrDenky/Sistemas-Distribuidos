@@ -1,3 +1,4 @@
+<!-- Mensaje de Ejemplo -->
 <?xml version="1.0" encoding="UTF-8"?>
 <MensajeRegistroProducto
   xmlns="http://lab.distribuidos/productos/v1"
@@ -14,9 +15,9 @@
   <!-- ==================== DATOS DEL PROVEEDOR ==================== -->
   <Proveedor>
     <IDProveedor>PROV-001</IDProveedor>
-    <Nombre>TecnoSuministros S.A.</Nombre>
+    <Nombre>Carnes del Sur S.A.</Nombre>
     <RUC>1792345678001</RUC>
-    <Email>contacto@tecnosuministros.com</Email>
+    <Email>contacto@carnesdelsur.com</Email>
     <Telefono>+593987654321</Telefono>
     <Direccion>
       <Calle>Av. Amazonas N35-23</Calle>
@@ -30,11 +31,11 @@
   <!-- ==================== DATOS DEL PRODUCTO ==================== -->
   <Producto>
     <Codigo>ELEC0042</Codigo>
-    <Nombre>Sensor de Temperatura Industrial</Nombre>
-    <Descripcion>Sensor NTC de alta precisión para entornos industriales, rango -40°C a 150°C</Descripcion>
-    <Categoria>ELECTRONICA</Categoria>
+    <Nombre>Chuleta de Cerdo</Nombre>
+    <Descripcion>Chuleta de cerdo de alta calidad, fresca y lista para cocinar</Descripcion>
+    <Categoria>POLLOS</Categoria>
     <Precio>
-      <Valor>89.99</Valor>
+      <Valor>8.99</Valor>
       <Moneda>USD</Moneda>
     </Precio>
     <Stock>250</Stock>

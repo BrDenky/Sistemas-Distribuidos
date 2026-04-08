@@ -1,13 +1,12 @@
+<!-- Esquema - Definimos las reglas del mensaje XML -->
+
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            targetNamespace="http://lab.distribuidos/productos/v1"
            xmlns:tns="http://lab.distribuidos/productos/v1"
            elementFormDefault="qualified">
 
-  <!-- ============================================================ -->
-  <!--  TIPOS SIMPLES REUTILIZABLES                                 -->
-  <!--  Se definen restricciones sobre tipos base para generalizar  -->
-  <!-- ============================================================ -->
+  <!-- =====  TIPOS SIMPLES REUTILIZABLES - Restricciones sobre valores Individuales ===== -->
 
   <!-- Código de producto: exactamente 8 caracteres alfanuméricos -->
   <xs:simpleType name="TipoCodigoProducto">
@@ -41,19 +40,16 @@
   <!-- Categorías permitidas de producto -->
   <xs:simpleType name="TipoCategoria">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="ELECTRONICA"/>
-      <xs:enumeration value="ALIMENTOS"/>
-      <xs:enumeration value="ROPA"/>
-      <xs:enumeration value="HOGAR"/>
-      <xs:enumeration value="SALUD"/>
+      <xs:enumeration value="POLLOS"/>
+      <xs:enumeration value="PAVOS"/>
+      <xs:enumeration value="CORDERO"/>
+      <xs:enumeration value="CERDO"/>
+      <xs:enumeration value="EMBUTIDOS"/>
       <xs:enumeration value="OTROS"/>
     </xs:restriction>
   </xs:simpleType>
 
-  <!-- ============================================================ -->
-  <!--  TIPOS COMPLEJOS REUTILIZABLES                               -->
-  <!--  Agrupan campos relacionados para ser usados en el mensaje  -->
-  <!-- ============================================================ -->
+  <!-- ===== TIPOS COMPLEJOS REUTILIZABLES - Agrupan campos relacionados para ser usados en el mensaje ===== -->
 
   <!-- Dirección postal generalizada -->
   <xs:complexType name="TipoDireccion">
@@ -108,9 +104,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <!-- ============================================================ -->
-  <!--  ELEMENTO RAÍZ DEL MENSAJE                                   -->
-  <!-- ============================================================ -->
+  <!-- ===== ELEMENTO RAÍZ DEL MENSAJE - Estructura del mensaje completo ===== -->
 
   <xs:element name="MensajeRegistroProducto">
     <xs:complexType>
