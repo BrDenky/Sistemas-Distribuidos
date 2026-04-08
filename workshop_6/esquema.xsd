@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://lab.distribuidos/productos/v1"
+           xmlns:tns="http://lab.distribuidos/productos/v1"
+           elementFormDefault="qualified">
+
+  <!-- ============================================================ -->
+  <!--  TIPOS SIMPLES REUTILIZABLES                                 -->
+  <!--  Se definen restricciones sobre tipos base para generalizar  -->
+  <!-- ============================================================ -->
+
+  <!-- Código de producto: exactamente 8 caracteres alfanuméricos -->
+  <xs:simpleType name="TipoCodigoProducto">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z0-9]{8}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- RUC/NIT: entre 10 y 13 dígitos numéricos -->
+  <xs:simpleType name="TipoRUC">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{10,13}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Email con validación básica de formato -->
+  <xs:simpleType name="TipoEmail">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[^@]+@[^@]+\.[^@]+"/>
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Moneda: código ISO 4217 de 3 letras (USD, EUR, COP...) -->
+  <xs:simpleType name="TipoMoneda">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z]{3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Categorías permitidas de producto -->
+  <xs:simpleType name="TipoCategoria">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ELECTRONICA"/>
+      <xs:enumeration value="ALIMENTOS"/>
+      <xs:enumeration value="ROPA"/>
+      <xs:enumeration value="HOGAR"/>
+      <xs:enumeration value="SALUD"/>
+      <xs:enumeration value="OTROS"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ============================================================ -->
+  <!--  TIPOS COMPLEJOS REUTILIZABLES                               -->
+  <!--  Agrupan campos relacionados para ser usados en el mensaje  -->
+  <!-- ============================================================ -->
+
+  <!-- Dirección postal generalizada -->
+  <xs:complexType name="TipoDireccion">
+    <xs:sequence>
+      <xs:element name="Calle"     type="xs:string"  maxOccurs="1"/>
+      <xs:element name="Ciudad"    type="xs:string"/>
+      <xs:element name="Provincia" type="xs:string"  minOccurs="0"/>
+      <xs:element name="Pais"      type="xs:string"/>
+      <xs:element name="CodigoPostal" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Precio con valor y moneda separados -->
+  <xs:complexType name="TipoPrecio">
+    <xs:sequence>
+      <xs:element name="Valor" type="xs:decimal"/>
+      <xs:element name="Moneda" type="tns:TipoMoneda"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Proveedor: datos del emisor del mensaje -->
+  <xs:complexType name="TipoProveedor">
+    <xs:sequence>
+      <xs:element name="IDProveedor" type="xs:string"/>
+      <xs:element name="Nombre"      type="xs:string"/>
+      <xs:element name="RUC"         type="tns:TipoRUC"/>
+      <xs:element name="Email"       type="tns:TipoEmail"/>
+      <xs:element name="Telefono"    type="xs:string"  minOccurs="0"/>
+      <xs:element name="Direccion"   type="tns:TipoDireccion"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Producto: datos del artículo registrado -->
+  <xs:complexType name="TipoProducto">
+    <xs:sequence>
+      <xs:element name="Codigo"      type="tns:TipoCodigoProducto"/>
+      <xs:element name="Nombre"      type="xs:string"/>
+      <xs:element name="Descripcion" type="xs:string"  minOccurs="0"/>
+      <xs:element name="Categoria"   type="tns:TipoCategoria"/>
+      <xs:element name="Precio"      type="tns:TipoPrecio"/>
+      <xs:element name="Stock"       type="xs:nonNegativeInteger"/>
+      <xs:element name="FechaRegistro" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Metadatos del mensaje: trazabilidad y versionado -->
+  <xs:complexType name="TipoMetadatos">
+    <xs:sequence>
+      <xs:element name="IDMensaje"   type="xs:string"/>
+      <xs:element name="FechaEnvio"  type="xs:dateTime"/>
+      <xs:element name="Version"     type="xs:string" fixed="1.0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ============================================================ -->
+  <!--  ELEMENTO RAÍZ DEL MENSAJE                                   -->
+  <!-- ============================================================ -->
+
+  <xs:element name="MensajeRegistroProducto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Metadatos" type="tns:TipoMetadatos"/>
+        <xs:element name="Proveedor" type="tns:TipoProveedor"/>
+        <xs:element name="Producto"  type="tns:TipoProducto"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MensajeRegistroProducto
+  xmlns="http://lab.distribuidos/productos/v1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://lab.distribuidos/productos/v1 esquema.xsd">
+
+  <!-- ==================== METADATOS DEL MENSAJE ==================== -->
+  <Metadatos>
+    <IDMensaje>MSG-2026-0001</IDMensaje>
+    <FechaEnvio>2026-04-08T10:30:00</FechaEnvio>
+    <Version>1.0</Version>
+  </Metadatos>
+
+  <!-- ==================== DATOS DEL PROVEEDOR ==================== -->
+  <Proveedor>
+    <IDProveedor>PROV-001</IDProveedor>
+    <Nombre>TecnoSuministros S.A.</Nombre>
+    <RUC>1792345678001</RUC>
+    <Email>contacto@tecnosuministros.com</Email>
+    <Telefono>+593987654321</Telefono>
+    <Direccion>
+      <Calle>Av. Amazonas N35-23</Calle>
+      <Ciudad>Quito</Ciudad>
+      <Provincia>Pichincha</Provincia>
+      <Pais>Ecuador</Pais>
+      <CodigoPostal>170150</CodigoPostal>
+    </Direccion>
+  </Proveedor>
+
+  <!-- ==================== DATOS DEL PRODUCTO ==================== -->
+  <Producto>
+    <Codigo>ELEC0042</Codigo>
+    <Nombre>Sensor de Temperatura Industrial</Nombre>
+    <Descripcion>Sensor NTC de alta precisión para entornos industriales, rango -40°C a 150°C</Descripcion>
+    <Categoria>ELECTRONICA</Categoria>
+    <Precio>
+      <Valor>89.99</Valor>
+      <Moneda>USD</Moneda>
+    </Precio>
+    <Stock>250</Stock>
+    <FechaRegistro>2026-04-08</FechaRegistro>
+  </Producto>
+
+</MensajeRegistroProducto>
