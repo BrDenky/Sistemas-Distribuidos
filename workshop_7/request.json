@@ -1,0 +1,77 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "urn:distributed3d:gesture-request:v1",
+    "title": "GestureRequest",
+    "description": "Evento de gesto enviado por un cliente MediaPipe al API Gateway. Define la forma exacta que debe tener el JSON antes de ser enrutado al microservicio Gesture Detector.",
+    "type": "object",
+    "required": [
+        "client_id",
+        "landmarks"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "client_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "description": "Identificador único del cliente que envía el gesto.",
+            "examples": [
+                "client_001",
+                "user-abc123"
+            ]
+        },
+        "gesture": {
+            "type": "string",
+            "enum": [
+                "pinch",
+                "grab",
+                "swipe_left",
+                "swipe_right",
+                "swipe_up",
+                "swipe_down",
+                "open_hand",
+                "unknown"
+            ],
+            "description": "Tipo de gesto pre-clasificado. Si se omite, el Gesture Detector lo clasificará automáticamente a partir de los landmarks.",
+            "default": "unknown"
+        },
+        "landmarks": {
+            "type": "array",
+            "description": "Lista de 21 puntos de referencia de la mano (MediaPipe Hand Landmarks).",
+            "minItems": 1,
+            "maxItems": 21,
+            "items": {
+                "type": "object",
+                "required": [
+                    "x",
+                    "y",
+                    "z"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "x": {
+                        "type": "number",
+                        "minimum": -1,
+                        "maximum": 2,
+                        "description": "Coordenada X normalizada [0,1] en la imagen."
+                    },
+                    "y": {
+                        "type": "number",
+                        "minimum": -1,
+                        "maximum": 2,
+                        "description": "Coordenada Y normalizada [0,1] en la imagen."
+                    },
+                    "z": {
+                        "type": "number",
+                        "description": "Profundidad relativa respecto a la muñeca."
+                    }
+                }
+            }
+        },
+        "timestamp": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Epoch Unix (segundos) del momento de captura. Auto-generado si se omite."
+        }
+    }
+}

@@ -1,0 +1,92 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "urn:distributed3d:gesture-response:v1",
+    "title": "GestureResponse",
+    "description": "Respuesta del Gesture Detector tras clasificar un gesto y solicitar al Physics Engine que actualice el estado de las partículas 3D.",
+    "type": "object",
+    "required": [
+        "status",
+        "client_id",
+        "gesture",
+        "queued",
+        "physics"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "status": {
+            "type": "string",
+            "enum": [
+                "processed",
+                "error"
+            ],
+            "description": "Estado del procesamiento."
+        },
+        "client_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Eco del client_id recibido en el request."
+        },
+        "gesture": {
+            "type": "string",
+            "enum": [
+                "pinch",
+                "grab",
+                "swipe_left",
+                "swipe_right",
+                "swipe_up",
+                "swipe_down",
+                "open_hand",
+                "unknown"
+            ],
+            "description": "Gesto clasificado por el microservicio."
+        },
+        "queued": {
+            "type": "boolean",
+            "description": "True si el evento fue publicado exitosamente en RabbitMQ."
+        },
+        "physics": {
+            "type": "object",
+            "description": "Resultado del Physics Engine tras aplicar la física.",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "updated",
+                        "error"
+                    ]
+                },
+                "version": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Versión del mundo tras la actualización."
+                },
+                "particle_count": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "persisted": {
+                    "type": "boolean",
+                    "description": "True si el estado se persistió correctamente en PostgreSQL."
+                }
+            }
+        },
+        "metrics": {
+            "type": "object",
+            "description": "Métricas de rendimiento añadidas por el middleware (opcional).",
+            "properties": {
+                "request_bytes": {
+                    "type": "integer"
+                },
+                "response_bytes": {
+                    "type": "integer"
+                },
+                "latency_ms": {
+                    "type": "number"
+                },
+                "processing_ms": {
+                    "type": "number"
+                }
+            }
+        }
+    }
+}

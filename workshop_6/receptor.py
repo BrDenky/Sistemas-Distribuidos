@@ -2,7 +2,7 @@
 # Simula el rol del sistema central.
 # Recibe el mensaje XML, lo valida contra el XSD y responde.
 
-# Para este laboratorio receptor.py escucha en http://localhost:8080/registro
+# Para este laboratorio receptor.py escucha en http://172.23.198.68:8080/registro
 
 
 import json

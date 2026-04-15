@@ -12,9 +12,7 @@ XML_PATH     = "mensaje.xml"
 
 
 def enviar_mensaje(xml_path: str, url: str) -> None:
-    print("=" * 55)
     print("   EMISOR - Registro de Productos")
-    print("=" * 55)
 
     # Leemos el archivo XML
     print(f"\n[1] Leyendo mensaje: {xml_path}")
@@ -44,7 +42,7 @@ def enviar_mensaje(xml_path: str, url: str) -> None:
 
         print(f"\n[3] Respuesta del receptor:")
         print(f"    HTTP Status : {status}")
-        print(f"    Válido      : {'✔ SÍ' if respuesta.get('valido') else '✘ NO'}")
+        print(f"    Válido      : {'SÍ' if respuesta.get('valido') else 'NO'}")
         print(f"    Mensaje     : {respuesta.get('mensaje')}")
 
         if respuesta.get("resumen"):
@@ -67,8 +65,6 @@ def enviar_mensaje(xml_path: str, url: str) -> None:
     except urllib.error.URLError as e:
         print(f" No se pudo conectar al receptor: {e.reason}")
         print(f" ¿Está corriendo receptor.py en el puerto 8080?")
-
-    print("\n" + "=" * 55)
 
 
 if __name__ == "__main__":

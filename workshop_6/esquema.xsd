@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- Esquema - Definimos las reglas del mensaje XML -->
 
-<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            targetNamespace="http://lab.distribuidos/productos/v1"
            xmlns:tns="http://lab.distribuidos/productos/v1"
